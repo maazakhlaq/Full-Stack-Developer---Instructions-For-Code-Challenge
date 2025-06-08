@@ -27,7 +27,7 @@ const SkipCard = ({ skip, isSelected, onSelect }) => {
         <img
           src={imageUrl}
           alt={`${skip.size} Yard Skip`}
-          className="border border-gray-700 shadow-md"
+          className="border border-gray-700 h-44 w-full shadow-md"
           onError={(e) => {
             e.currentTarget.src =
               "https://via.placeholder.com/300x160?text=No+Image";
