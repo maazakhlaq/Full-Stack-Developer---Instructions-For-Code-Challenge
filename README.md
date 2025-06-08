@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+#  Skip Selection Component
+
+This project is a responsive, interactive **Skip Selection UI** built using **React**, **Tailwind CSS**, and **Axios**. It allows users to view and select skip sizes based on their location and fits seamlessly into a multi-step booking flow.
+
+---
+
+## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
+#### `npm i -f`
+#### `npm start`
 
-### `npm start`
+Runs the app in development mode.  
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+-  Multi-step **Progress Stepper**
+-  **Skip data fetched** from an external API
+-  **Responsive UI** using Tailwind CSS
+-  **Interactive skip cards** with selection feedback
+-  **Modular, reusable component architecture**
+-  **Accessible and keyboard-navigable**
+-  UI feedback for **loading and selection**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+##  Approach
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###  Component Architecture
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The app is structured with focused, reusable components:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **`Stepper.jsx`** – Displays the step progress bar; sticky on mobile view
+- **`SkipCard.jsx`** – Renders each skip and handles selection logic
+- **`BottomBar.jsx`** – Sticky footer showing selected skip and action buttons
+- **`SkipSelection.jsx`** – Main container managing state and API fetching
 
-### `npm run eject`
+###  Data Fetching
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Axios is used to fetch skips based on postcode/area.
+- Loading and error states are handled with graceful fallbacks.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+###  State Management
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `skips` – List of available skip options
+- `loading` – Indicates data-fetching status
+- `selectedSkipId` – Tracks the currently selected skip
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+###  User Interaction
 
-## Learn More
+- Users can click (or press Enter/Space) to select/deselect skips
+- A sticky bottom summary appears once a skip is selected
+- "Back" and "Continue" buttons manage navigation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##  UI/UX Design
 
-### Code Splitting
+Designed to be clean, responsive, and accessible, with special behavior:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Stepper is **sticky on mobile view** only
+- BottomBar appears **only when a skip is selected**
+- Uses **Tailwind's utility classes** for rapid styling
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+##  Screenshots
 
-### Making a Progressive Web App
+###  Browser View UI
+![Browser View](./public/screenshots/browserView.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+###  Skip Card View
+![Skip Cards](./public/screenshots/stepper-ui.png)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###  Mobile View (Sticky Stepper)
+![Mobile View](./public/screenshots/mobileview.png)
